@@ -31,11 +31,10 @@ class MainActivity : AppCompatActivity() {
             val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
                 { response ->
                     rpta=response.getString("data")
-                    Log.i("","")
                     var lstususarios = ""
-                    val JSONlista = JSONArray(rpta)
-                    for (i in 0 until JSONlista.length()) {
-                        val usuario: JSONObject = JSONlista.getJSONObject(i)
+                    val listjson = JSONArray(rpta)
+                    for (i in 0 until listjson.length()) {
+                        val usuario: JSONObject = listjson.getJSONObject(i)
                         lstususarios = lstususarios +
                         "\n"+"id: "+usuario.getString("id")+
                         "; name: "+usuario.getString("name")+
