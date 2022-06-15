@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
             // Request a string response from the provided URL.
             val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
-                Response.Listener { response ->
+                { response ->
                     rpta=response.getString("data")
                     Log.i("","")
                     var lstususarios = ""
@@ -43,12 +43,10 @@ class MainActivity : AppCompatActivity() {
                         "; gender: "+usuario.getString("gender")+
                         "; status: "+usuario.getString("status") +"\n"
                         }
-
                     textView.setText(lstususarios)
-
                 },
-                Response.ErrorListener { error ->
-                    // TODO: Handle error
+                { error ->
+
                 }
             )
             queue.add(jsonObjectRequest);
